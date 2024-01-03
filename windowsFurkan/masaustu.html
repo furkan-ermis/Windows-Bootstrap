@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Masaüstü</title>
+  </head>
+
+  <body>
+    <style>
+      body {
+        background-image: url("masaustu.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+      }
+      .barList li:hover,
+      button:hover,
+      .d-block button:hover {
+        background-color: rgba(0, 0, 0, 0.4) !important;
+      }
+    </style>
+    <!-- ! ------------------------------------------ -->
+    <!--  ! Masaustu klasörleri -->
+    <div class="d-block pc">
+      <button
+        data-bs-target="#bilgisayar"
+        data-bs-toggle="modal"
+        class="text-secondary bg-transparent border-0 m-3 fs-2"
+      >
+        <i class="fa-solid fa-computer"></i>
+        <div>Bilgisayarım</div>
+      </button>
+    </div>
+    <div class="d-block doc">
+      <button
+        data-bs-target="#belgeler"
+        data-bs-toggle="modal"
+        class="text-primary bg-transparent border-0 m-3 fs-2"
+        style="cursor: pointer"
+      >
+        <i class="fa-solid fa-folder-open"></i>
+        <div>Belgelerim</div>
+      </button>
+    </div>
+    <div class="d-block pics">
+      <button
+        data-bs-target="#resimler"
+        data-bs-toggle="modal"
+        class="text-success bg-transparent border-0 m-3 fs-1"
+      >
+        <i class="fa-solid fa-photo-film"></i>
+        <div>Resimler</div>
+      </button>
+    </div>
+    <div class="d-block apps">
+      <button
+        data-bs-target="#uygulamalar"
+        data-bs-toggle="modal"
+        class="text-danger bg-transparent border-0 m-3 fs-3"
+      >
+        <i class="fa-brands fa-app-store-ios"></i>
+        <div>Uygulamalar</div>
+      </button>
+    </div>
+    <!-- ! ------------------------------------------ -->
+    <!-- ! GOREV CUBUGU -->
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary fixed-bottom"
+      data-bs-theme="dark"
+    >
+      <div class="container-fluid">
+        <div class="dropup">
+          <button
+            role="button"
+            type="button"
+            class="btn dropdown"
+            data-bs-toggle="dropdown"
+            style="font-size: 30px"
+          >
+            <i class="fab fa-windows"></i>
+          </button>
+          <ul class="dropdown-menu p-5">
+            <div>
+              <div style="width: 200px !important; height: 200px">
+                <div
+                  class="position-fixed fs-2 start-0 ps-3 bottom-0 pb-5 mb-5"
+                >
+                  <li
+                    data-bs-target="#uygulamalar"
+                    data-bs-toggle="modal"
+                    class="apps"
+                  >
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-folder-open"></i> Uygulamalar</a
+                    >
+                  </li>
+                  <li
+                    data-bs-target="#resimler"
+                    data-bs-toggle="modal"
+                    class="pics"
+                  >
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-images"></i> Resimler</a
+                    >
+                  </li>
+                  <li
+                    data-bs-target="#belgeler"
+                    data-bs-toggle="modal"
+                    class="doc"
+                  >
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-folder-open"></i> Belgelerim</a
+                    >
+                  </li>
+                  <li
+                    data-bs-target="#bilgisayar"
+                    data-bs-toggle="modal"
+                    class="pc"
+                  >
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-desktop"></i> Bilgisayarım</a
+                    >
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="d-flex">
+                    <a class="dropdown-item" href="/baslat.html">
+                      <i class="fas fa-power-off" style="font-size: 20px"></i>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      <i
+                        class="fa-solid fa-gear ps-4"
+                        style="font-size: 20px"
+                      ></i>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      <i
+                        class="fa-solid fa-user ps-4"
+                        style="font-size: 20px"
+                      ></i>
+                    </a>
+                  </li>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+        <div>
+          <ul class="d-flex list-unstyled barList">
+            <li
+              id="bilgisayarIcon"
+              style="
+                margin-right: 15px;
+                padding: 15px;
+                height: 100%;
+                width: 100%;
+                margin-block: 0;
+                display: none;
+              "
+            >
+              <i class="fa-solid fa-computer fs-1 text-black"></i>
+            </li>
+            <li
+              id="belgelerIcon"
+              style="
+                margin-right: 15px;
+                padding: 15px;
+                height: 100%;
+                display: none;
+                width: 100%;
+                margin-block: 0;
+              "
+            >
+              <i class="fa-solid fa-folder-open fs-1 text-black"></i>
+            </li>
+            <li
+              id="resimlerIcon"
+              style="
+                margin-right: 15px;
+                padding: 15px;
+                display: none;
+                height: 100%;
+                width: 100%;
+                margin-block: 0;
+              "
+            >
+              <i class="fa-solid fa-photo-film fs-1 text-black"></i>
+            </li>
+            <li
+              id="uygulamalarIcon"
+              style="
+                margin-right: 15px;
+                display: none;
+                padding: 15px;
+                height: 100%;
+                width: 100%;
+                margin-block: 0;
+              "
+            >
+              <i class="fa-brands fa-app-store-ios fs-1 text-black"></i>
+            </li>
+          </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropup">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                style="font-size: 20px; margin-right: 10px !important"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+              </a>
+              <ul
+                class="dropdown-menu"
+                style="width: 60px; margin: 0 !important; padding: 0 !important"
+              >
+                <div class="row d-flex p-2 justify-content-evenly">
+                  <div class="col-3">
+                    <i
+                      class="fa-brands fa-bluetooth fs-4 p-2"
+                      style="cursor: pointer"
+                    ></i>
+                    <i
+                      class="fa-solid fa-file-shield fs-4 p-2"
+                      style="cursor: pointer"
+                    ></i>
+                  </div>
+                  <div class="col-3">
+                    <i
+                      class="fa-solid fa-cloud p-2 fs-4"
+                      style="cursor: pointer"
+                    ></i
+                    ><i
+                      class="fa-brands fa-centos p-2 fs-4"
+                      style="cursor: pointer"
+                    ></i>
+                  </div>
+                </div>
+              </ul>
+            </li>
+            <li class="d-flex align-items-center" style="cursor: pointer">
+              <i
+                class="fa-solid fa-volume-high text-light fs-4"
+                style="cursor: pointer"
+              ></i>
+            </li>
+            <li class="d-flex align-items-center" style="cursor: pointer">
+              <i
+                class="fa-solid fa-wifi text-light ps-3 fs-4"
+                style="cursor: pointer"
+              ></i>
+            </li>
+            <li class="d-flex align-items-center" style="cursor: pointer">
+              <i
+                class="fa-solid fa-battery-three-quarters text-light ps-3 fs-4"
+                style="cursor: pointer"
+              ></i>
+            </li>
+            <li class="nav-item d-flex flex-column">
+              <a
+                class="text-decoration-none text-secondary ps-3"
+                aria-disabled="true"
+                id="tarihVeSaat"
+                style="
+                  cursor: pointer;
+                  font-size: large !important;
+                  color: white !important;
+                "
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- ! ------------------------------------------ -->
+    <!-- ! MODALS -->
+    <!-- ! BİLGİSAYARIM -->
+    <div class="modal fade" id="bilgisayar" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-xl text-dark modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-light">
+              <i class="fas fa-folder-open pe-2 text-light border-end"></i>
+              Bilgisayarım
+            </h1>
+            <button
+              type="button"
+              class="btn-close closeBtn bg-danger"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row" style="height: 500px">
+              <div class="col-2 text-light border-end">
+                &#8594;
+                <u> <strong>Hızlı Erişim</strong></u
+                ><br />
+                <div
+                  class="btn closeBtn text-light"
+                  data-bs-target="#bilgisayar"
+                  data-bs-toggle="modal"
+                >
+                  <span
+                    ><i class="fa-solid fa-laptop" style="color: #e2d7d7"></i
+                  ></span>
+                  Bilgisayarım
+                </div>
+                <br />
+                <div
+                  class="btn doc text-light"
+                  data-bs-target="#belgeler"
+                  data-bs-toggle="modal"
+                >
+                  <span>
+                    <i
+                      class="fa-regular fa-folder-open doc"
+                      style="color: #ddcfcf"
+                    ></i>
+                  </span>
+                  Belgelerim
+                </div>
+                <br />
+                <div
+                  class="btn pics text-light"
+                  data-bs-target="#resimler"
+                  data-bs-toggle="modal"
+                >
+                  <span>
+                    <i class="fa-solid fa-images" style="color: #c2c2cc"></i>
+                  </span>
+                  Resimler
+                </div>
+                <br />
+                <div
+                  class="btn apps text-light"
+                  data-bs-target="#uygulamalar"
+                  data-bs-toggle="modal"
+                >
+                  <span>
+                    <i class="fa-solid fa-rocket" style="color: #dbdbe6"></i>
+                  </span>
+                  Uygulamalar
+                </div>
+                <br />
+              </div>
+              <div class="col-10 bg-dark p-2">
+                <div class="p-3">
+                  <div>
+                    <i
+                      class="fs-1 fa-solid fa-hard-drive"
+                      style="color: #dbdbdb"
+                    ></i>
+                  </div>
+                  <p style="color: white">Yerel Disk (C)</p>
+                  <div>
+                    <div
+                      class="progress"
+                      role="progressbar"
+                      aria-label="Example with label"
+                      aria-valuenow="45"
+                      aria-valuemin="0"
+                      style="width: 100px"
+                      aria-valuemax="100"
+                    >
+                      <div class="progress-bar" style="width: 45%">45%</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ! BELGELER -->
+    <div class="modal fade" id="belgeler" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-xl text-light modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">
+              <i class="fas fa-folder-open pe-2 border-end"></i> Belgelerim
+            </h1>
+            <button
+              type="button"
+              class="btn-close closeBtn bg-danger"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row" style="height: 500px">
+              <div class="col-3 border-end">
+                &#8594;
+                <u> Hızlı Erişim</u><br />
+                <div
+                  class="btn pc text-light"
+                  data-bs-target="#bilgisayar"
+                  data-bs-toggle="modal"
+                >
+                  <span
+                    ><i class="fa-solid fa-laptop" style="color: #ccced1"></i
+                  ></span>
+                  Bilgisayarım
+                </div>
+                <br />
+                <div
+                  class="btn closeBtn text-light"
+                  data-bs-target="#belgeler"
+                  data-bs-toggle="modal"
+                >
+                  <span>
+                    <i
+                      class="fa-regular fa-folder-open"
+                      style="color: #bec1c5"
+                    ></i>
+                  </span>
+                  Belgelerim
+                </div>
+                <br />
+                <div
+                  class="btn pics text-light"
+                  data-bs-target="#resimler"
+                  data-bs-toggle="modal"
+                >
+                  <span>
+                    <i class="fa-solid fa-images" style="color: #bebfc1"></i>
+                  </span>
+                  Resimler
+                </div>
+                <br />
+                <div
+                  class="btn apps text-light"
+                  data-bs-target="#uygulamalar"
+                  data-bs-toggle="modal"
+                >
+                  <span>
+                    <i class="fa-solid fa-rocket" style="color: #cdced0"></i>
+                  </span>
+                  Uygulamalar
+                </div>
+                <br />
+              </div>
+              <div class="col-9 row">
+                <div
+                  data-bs-target="#word"
+                  data-bs-toggle="modal"
+                  class="col-3 text-light text-center"
+                >
+                  <div style="cursor: pointer">
+                    <i
+                      class="fa-solid fa-file-word fs-1"
+                      style="color: #1660df"
+                    ></i>
+                    <p>document.docx</p>
+                  </div>
+                </div>
+                <div
+                  data-bs-target="#excel"
+                  data-bs-toggle="modal"
+                  class="col-3 text-light text-center"
+                >
+                  <div style="cursor: pointer">
+                    <i
+                      class="fa-solid fa-file-excel fs-1"
+                      style="color: #00eb85"
+                    ></i>
+                    <p>listem.xlsx</p>
+                  </div>
+                </div>
+                <div
+                  data-bs-target="#pdf"
+                  data-bs-toggle="modal"
+                  class="col-3 text-light text-center"
+                >
+                  <div style="cursor: pointer">
+                    <i
+                      class="fa-solid fa-file-pdf fs-1"
+                      style="color: #db0a0a"
+                    ></i>
+                    <p>belge.pdf</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ! BELGELER WORD-->
+    <div class="modal fade" id="word" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-xl text-light modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">
+              <i class="fas fa-folder-open pe-2 border-end"></i> Word
+            </h1>
+            <button
+              type="button"
+              class="btn-close bg-danger"
+              data-bs-dismiss="modal"
+              data-bs-target="#belgeler"
+              data-bs-toggle="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <textarea
+              name=""
+              id=""
+              cols="160"
+              rows="35"
+              style="padding: 30px; font-size: large"
+            ></textarea>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ! ------------------------------------------ -->
+    <!-- ! BELGELER EXCEL-->
+    <div class="modal fade" id="excel" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-xl text-light modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">
+              <i class="fas fa-folder-open pe-2 border-end"></i> Excel
+            </h1>
+            <button
+              type="button"
+              class="btn-close bg-danger"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              data-bs-target="#belgeler"
+              data-bs-toggle="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <th>Adı</th>
+                <th>Soyadı</th>
+                <th>Yaşı</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Furkan</td>
+                  <td>Ermiş</td>
+                  <td>25</td>
+                </tr>
+                <tr>
+                  <td>Ali Rıza</td>
+                  <td>Durak</td>
+                  <td>24</td>
+                </tr>
+                <tr>
+                  <td>İsmail</td>
+                  <td>Güleç</td>
+                  <td>25</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ! ------------------------------------------ -->
+    <!-- ! BELGELER PDF-->
+    <div class="modal fade" id="pdf" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-xl text-light modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">
+              <i class="fas fa-folder-open pe-2 border-end"></i> PDF
+            </h1>
+            <button
+              type="button"
+              class="btn-close bg-danger"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              data-bs-target="#belgeler"
+              data-bs-toggle="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="bg-light text-black m-3 p-3">
+              <h1>Lorem, ipsum dolor.</h1>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi,
+                modi possimus. Recusandae tenetur molestiae inventore numquam,
+                nostrum dolorum repellendus magnam cum necessitatibus, ipsum
+                aliquid aspernatur eligendi incidunt error eos illo. Amet eos
+                quibusdam deleniti ab cupiditate inventore veniam maiores
+                pariatur, numquam animi exercitationem in hic nihil ex
+                molestias. Soluta quidem consectetur eligendi omnis vitae libero
+                earum voluptatum qui totam velit. Corrupti beatae eos, tempore
+                cumque modi dignissimos nesciunt? Voluptate modi sapiente quos.
+                Est fugit eos sit eum modi. Placeat consequuntur, ex iste
+                accusantium ut quisquam perspiciatis. Sapiente facilis
+                voluptates nihil. Porro dolor doloribus impedit? Saepe sequi
+                iusto facere fugiat vitae, dolore corporis eum esse voluptatum
+                in totam similique, ab minima commodi exercitationem ipsam
+                nostrum ratione corrupti placeat fugit ullam tempora. Iste quis
+                ipsam laboriosam nulla, numquam atque aliquam recusandae quo
+                magni ad voluptas necessitatibus aut. Aliquam dolorum debitis
+                officiis eos velit eum placeat! Ea tenetur autem unde veniam
+                ducimus molestiae? Error molestiae est quos. Modi ad dolore quia
+                tempora, quisquam facere doloremque voluptatibus? Iure sunt
+                nulla soluta non fuga eum hic adipisci, natus quas quasi quae
+                alias corporis veniam necessitatibus! Odit, impedit. Aliquid
+                culpa cum saepe optio doloremque iure repellat dicta numquam,
+                hic perferendis mollitia id velit placeat fugit fuga error non
+                consectetur itaque ducimus cupiditate impedit. Reprehenderit,
+                voluptatem quasi. Tempora voluptas modi hic id quos obcaecati.
+                Dolor voluptas rem, sint possimus voluptatibus necessitatibus
+                illum optio officia quaerat fugiat, harum facilis ipsa
+                doloribus, est eius ipsum. Repellat quae tempora inventore.
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ! ------------------------------------------ -->
+    <!-- ! RESİMLER -->
+    <div class="modal fade" id="resimler" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-xl text-light modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">
+              <i class="fas fa-folder-open pe-2 border-end"></i> Resimlerim
+            </h1>
+            <button
+              type="button"
+              class="btn-close closeBtn bg-danger"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row" style="height: 500px">
+              <div class="col-3 border-end">
+                &#8594;
+                <u> Hızlı Erişim</u><br />
+                <div
+                  class="btn pc text-light"
+                  data-bs-target="#bilgisayar"
+                  data-bs-toggle="modal"
+                >
+                  <span
+                    ><i class="fa-solid fa-laptop" style="color: #ccced1"></i
+                  ></span>
+                  Bilgisayarım
+                </div>
+                <br />
+                <div
+                  class="btn doc text-light"
+                  data-bs-target="#belgeler"
+                  data-bs-toggle="modal"
+                >
+                  <span>
+                    <i
+                      class="fa-regular fa-folder-open"
+                      style="color: #bec1c5"
+                    ></i>
+                  </span>
+                  Belgelerim
+                </div>
+                <br />
+                <div
+                  class="btn closeBtn text-light"
+                  data-bs-target="#resimler"
+                  data-bs-toggle="modal"
+                >
+                  <span>
+                    <i class="fa-solid fa-images" style="color: #bebfc1"></i>
+                  </span>
+                  Resimler
+                </div>
+                <br />
+                <div
+                  class="btn apps text-light"
+                  data-bs-target="#uygulamalar"
+                  data-bs-toggle="modal"
+                >
+                  <span>
+                    <i class="fa-solid fa-rocket" style="color: #cdced0"></i>
+                  </span>
+                  Uygulamalar
+                </div>
+                <br />
+              </div>
+              <div class="col-9 row">
+                <div class="col-3 text-light text-center">
+                  <div style="cursor: pointer">
+                    <img
+                      src="images/image1.jpg"
+                      data-bs-target="#resim1"
+                      data-bs-toggle="modal"
+                      class="w-100"
+                    />
+                    <p>resim1.jpg</p>
+                  </div>
+                </div>
+                <div class="col-3 text-light text-center">
+                  <div style="cursor: pointer">
+                    <img
+                      src="images/image2.jpg"
+                      data-bs-target="#resim2"
+                      data-bs-toggle="modal"
+                      class="w-100"
+                    />
+                    <p>resim2.jpg</p>
+                  </div>
+                </div>
+                <div class="col-3 text-light text-center">
+                  <div style="cursor: pointer">
+                    <img
+                      src="images/image3.jpg"
+                      data-bs-target="#resim3"
+                      data-bs-toggle="modal"
+                      class="w-100"
+                    />
+                    <p>resim3.jpg</p>
+                  </div>
+                </div>
+                <div class="col-3 text-light text-center">
+                  <div style="cursor: pointer">
+                    <img
+                      src="images/image4.jpg"
+                      data-bs-target="#resim4"
+                      data-bs-toggle="modal"
+                      class="w-100"
+                    />
+                    <p>resim4.jpg</p>
+                  </div>
+                </div>
+                <div class="col-3 text-light text-center">
+                  <div style="cursor: pointer">
+                    <img
+                      src="images/image5.jpg"
+                      data-bs-target="#resim5"
+                      data-bs-toggle="modal"
+                      class="w-100"
+                    />
+                    <p>resim5.jpg</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ! ------------------------------------------ -->
+    <!-- ! Resim 1 MODAL -->
+    <div class="modal fade" id="resim1" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-xl text-light modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Bilgisayarım</h1>
+            <button
+              type="button"
+              class="btn-close bg-danger"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              data-bs-target="#resimler"
+              data-bs-toggle="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row" style="height: 500px">
+              <img src="/images/image1.jpg" height="500" alt="" />
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ! ------------------------------------------ -->
+    <!-- ! Resim 2 MODAL -->
+    <div class="modal fade" id="resim2" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-xl text-light modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Bilgisayarım</h1>
+            <button
+              type="button"
+              class="btn-close bg-danger"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              data-bs-target="#resimler"
+              data-bs-toggle="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row" style="height: 500px">
+              <img src="/images/image2.jpg" height="500" alt="" />
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ! ------------------------------------------ -->
+    <!-- ! Resim 3 MODAL -->
+    <div class="modal fade" id="resim3" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-xl text-light modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Bilgisayarım</h1>
+            <button
+              type="button"
+              class="btn-close bg-danger"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              data-bs-target="#resimler"
+              data-bs-toggle="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row" style="height: 500px">
+              <img src="/images/image3.jpg" height="500" alt="" />
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ! ------------------------------------------ -->
+    <!-- ! Resim 4 MODAL -->
+    <div class="modal fade" id="resim4" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-xl text-light modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Bilgisayarım</h1>
+            <button
+              type="button"
+              class="btn-close bg-danger"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              data-bs-target="#resimler"
+              data-bs-toggle="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row" style="height: 500px">
+              <img src="/images/image4.jpg" height="500" alt="" />
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ! ------------------------------------------ -->
+    <!-- ! Resim 5 MODAL -->
+    <div class="modal fade" id="resim5" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-xl text-light modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Bilgisayarım</h1>
+            <button
+              type="button"
+              class="btn-close bg-danger"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              data-bs-target="#resimler"
+              data-bs-toggle="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row" style="height: 500px">
+              <img src="/images/image5.jpg" height="500" alt="" />
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ! ------------------------------------------ -->
+    <!-- ! UYGULAMALAR -->
+    <div class="modal fade" id="uygulamalar" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-xl text-light modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">
+              <i class="fas fa-folder-open pe-2 border-end"></i> Uygulamalar
+            </h1>
+            <button
+              type="button"
+              class="btn-close closeBtn bg-danger"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row" style="height: 500px">
+              <div class="col-3 border-end">
+                &#8594;
+                <u> Hızlı Erişim</u><br />
+                <div
+                  class="btn pc text-light"
+                  data-bs-target="#bilgisayar"
+                  data-bs-toggle="modal"
+                >
+                  <span
+                    ><i class="fa-solid fa-laptop" style="color: #ccced1"></i
+                  ></span>
+                  Bilgisayarım
+                </div>
+                <br />
+                <div
+                  class="btn doc text-light"
+                  data-bs-target="#belgeler"
+                  data-bs-toggle="modal"
+                >
+                  <span>
+                    <i
+                      class="fa-regular fa-folder-open"
+                      style="color: #bec1c5"
+                    ></i>
+                  </span>
+                  Belgelerim
+                </div>
+                <br />
+                <div
+                  class="btn pics text-light"
+                  data-bs-target="#resimler"
+                  data-bs-toggle="modal"
+                >
+                  <span>
+                    <i class="fa-solid fa-images" style="color: #bebfc1"></i>
+                  </span>
+                  Resimler
+                </div>
+                <br />
+                <div
+                  class="btn closeBtn text-light"
+                  data-bs-target="#uygulamalar"
+                  data-bs-toggle="modal"
+                >
+                  <span>
+                    <i class="fa-solid fa-rocket" style="color: #cdced0"></i>
+                  </span>
+                  Uygulamalar
+                </div>
+                <br />
+              </div>
+              <div class="col-9 row">
+                <div class="col-3 text-light text-center">
+                  <div
+                    style="cursor: pointer"
+                    data-bs-target="#calc"
+                    data-bs-toggle="modal"
+                    class="text-decoration-none text-light"
+                  >
+                    <i
+                      class="fa-solid fa-calculator fs-1"
+                      style="color: #c5d214"
+                    ></i>
+                    <p>Hesap Makinesi</p>
+                  </div>
+                </div>
+                <div class="col-3 text-light text-center">
+                  <div
+                    style="cursor: pointer"
+                    data-bs-target="#bke"
+                    data-bs-toggle="modal"
+                    class="text-decoration-none text-light"
+                  >
+                    <i class="fa-solid fa-child-reaching fs-1"></i>
+
+                    <p>Boy Kilo İndex</p>
+                  </div>
+                </div>
+                <div class="col-3 text-center text-light">
+                  <a
+                    style="cursor: pointer"
+                    data-bs-target="#changeColor"
+                    data-bs-toggle="modal"
+                    class="text-decoration-none text-light"
+                  >
+                    <i
+                      class="fa-solid fa-plus-minus fs-1"
+                      style="color: #286ee6"
+                    ></i>
+                    <p>Click Counter</p></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ! UYGULAMA HESAP MAKİNESİ -->
+    <div class="modal fade" id="calc" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-lg text-light modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Calculator</h1>
+            <button
+              type="button"
+              class="btn-close bg-danger"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              data-bs-target="#uygulamalar"
+              data-bs-toggle="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row" style="height: 500px">
+              <div class="card p-3">
+                <div class="card-header text-center">
+                  <h2>Hesap Makinesi</h2>
+                </div>
+                <div class="card-body">
+                  <form name="form1">
+                    <div class="row">
+                      <div class="col-12 p-2">
+                        <input
+                          type="text"
+                          id="hesapMakinesi"
+                          name="sonuc"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="("
+                          onclick="form1.sonuc.value+='('"
+                          class="form-control btn btn-success"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value=")"
+                          onclick="form1.sonuc.value+=')'"
+                          class="form-control btn btn-success"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="/"
+                          onclick="form1.sonuc.value+='/'"
+                          class="form-control btn btn-info"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="*"
+                          onclick="form1.sonuc.value+='*'"
+                          class="form-control btn btn-info"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="7"
+                          onclick="form1.sonuc.value+='7'"
+                          class="form-control btn btn-outline-dark"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="8"
+                          onclick="form1.sonuc.value+='8'"
+                          class="form-control btn btn-outline-dark"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="9"
+                          onclick="form1.sonuc.value+='9'"
+                          class="form-control btn btn-outline-dark"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="-"
+                          onclick="form1.sonuc.value+='-'"
+                          class="form-control btn btn-info"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="4"
+                          onclick="form1.sonuc.value+='4'"
+                          class="form-control btn btn-outline-dark"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="5"
+                          onclick="form1.sonuc.value+='5'"
+                          class="form-control btn btn-outline-dark"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="6"
+                          onclick="form1.sonuc.value+='6'"
+                          class="form-control btn btn-outline-dark"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="+"
+                          onclick="form1.sonuc.value+='+'"
+                          class="form-control btn btn-info"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="1"
+                          onclick="form1.sonuc.value+='1'"
+                          class="form-control btn btn-outline-dark"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="2"
+                          onclick="form1.sonuc.value+='2'"
+                          class="form-control btn btn-outline-dark"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="3"
+                          onclick="form1.sonuc.value+='3'"
+                          class="form-control btn btn-outline-dark"
+                        />
+                      </div>
+
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="%"
+                          onclick="form1.sonuc.value+='%'"
+                          class="form-control btn btn-info"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="."
+                          onclick="form1.sonuc.value+='.'"
+                          class="form-control btn btn-outline-dark"
+                        />
+                      </div>
+                      <div class="col-3 p-1">
+                        <input
+                          type="button"
+                          value="0"
+                          onclick="form1.sonuc.value+='0'"
+                          class="form-control btn btn-outline-dark"
+                        />
+                      </div>
+
+                      <div class="col-6 p-1">
+                        <input
+                          type="button"
+                          value="="
+                          onclick="form1.sonuc.value=eval(form1.sonuc.value)"
+                          class="form-control btn btn-danger"
+                        />
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="card-footer">
+                  <h2 class="text-success" id="sonuc3"></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ! ------------------------------------------ -->
+    <!-- ! UYGULAMA BEDEN KİTLE ENDEKSİ -->
+    <div class="modal fade" id="bke" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-lg text-light modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Calculator</h1>
+            <button
+              type="button"
+              class="btn-close bg-danger"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              data-bs-target="#uygulamalar"
+              data-bs-toggle="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <h6 class="text-success" id="bkeSonuc"></h6>
+            <div class="card p-3">
+              <div class="card-header text-center">
+                <h2>Boy Kilo Endex Hesaplama</h2>
+              </div>
+              <div class="card-body">
+                <label for="boy">Boy</label>
+                <input
+                  type="number"
+                  id="boy"
+                  placeholder="cm türünden giriş yapınız"
+                  class="form-control"
+                />
+                <label for="kilo">Kilo</label>
+                <input
+                  type="number"
+                  id="kilo"
+                  placeholder="kg cinsinden giriş yapınız"
+                  class="form-control"
+                />
+                <label for="yas">Yaş</label>
+                <input
+                  type="number"
+                  id="yas"
+                  min="0"
+                  max="110"
+                  class="form-control"
+                />
+                <label for="cinsiyer">Cinsiyet</label>
+                <select id="cinsiyet" class="form-control">
+                  <option value="kadin">Kadın</option>
+                  <option value="erkek">Erkek</option>
+                </select>
+                <button
+                  class="btn btn-success mt-2 form-control"
+                  onclick="bke()"
+                >
+                  Hesapla
+                </button>
+              </div>
+              <div class="card-footer"></div>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ! ------------------------------------------ -->
+    <!-- ! UYGULAMA Click Counter  -->
+    <div class="modal fade" id="changeColor" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-lg text-light modal-dialog-centered">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Click Counter</h1>
+            <button
+              type="button"
+              class="btn-close bg-danger"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              data-bs-target="#uygulamalar"
+              data-bs-toggle="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="CountChange body">
+              <h1>Click Counter</h1>
+              <button id="clickButton">Click Me!</button>
+              <p id="counter">0</p>
+              <script>
+                var counter = 0;
+                var button = document.getElementById("clickButton");
+                var counterDisplay = document.getElementById("counter");
+
+                button.addEventListener("click", function () {
+                  counter++;
+                  counterDisplay.textContent = counter;
+                });
+              </script>
+              <style>
+                .body {
+                  background-color: #646161;
+                  color: #fff;
+                  text-align: center;
+                  padding: 20px;
+                }
+
+                CountChange h1 {
+                  font-size: 24px;
+                }
+
+                CountChange button {
+                  padding: 10px 20px;
+                  font-size: 18px;
+                }
+
+                CountChange p {
+                  font-size: 36px;
+                  margin-top: 20px;
+                }
+              </style>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ! ----------------  SCRIPTS  -------------------------- -->
+    <!--  ! Tarih Saat Script -->
+    <script>
+      function guncelTarihiAl() {
+        var bugun = new Date();
+        var tarihVeSaatElementi = document.getElementById("tarihVeSaat");
+
+        tarihVeSaatElementi.innerHTML =
+          bugun.toLocaleDateString() + "<br>" + bugun.toLocaleTimeString();
+      }
+
+      window.onload = function () {
+        guncelTarihiAl();
+        setInterval(guncelTarihiAl, 1000);
+      };
+    </script>
+    <!-- ! ---------------- -->
+    <!--  ! GOREV CUBUĞU ICON GOSTERME GIZLEME Script -->
+    <script>
+      $(".pc").click(function () {
+        $("#bilgisayarIcon").css("display", "inline-block");
+        $("#belgelerIcon").css("display", "none");
+        $("#resimlerIcon").css("display", "none");
+        $("#uygulamalarIcon").css("display", "none");
+      });
+      $(".doc").click(function () {
+        $("#bilgisayarIcon").css("display", "none");
+        $("#belgelerIcon").css("display", "inline-block");
+        $("#resimlerIcon").css("display", "none");
+        $("#uygulamalarIcon").css("display", "none");
+      });
+      $(".pics").click(function () {
+        $("#bilgisayarIcon").css("display", "none");
+        $("#belgelerIcon").css("display", "none");
+        $("#resimlerIcon").css("display", "inline-block");
+        $("#uygulamalarIcon").css("display", "none");
+      });
+      $(".apps").click(function () {
+        $("#bilgisayarIcon").css("display", "none");
+        $("#belgelerIcon").css("display", "none");
+        $("#resimlerIcon").css("display", "none");
+        $("#uygulamalarIcon").css("display", "inline-block");
+      });
+      $(".closeBtn").click(function () {
+        $("#bilgisayarIcon").css("display", "none");
+        $("#belgelerIcon").css("display", "none");
+        $("#resimlerIcon").css("display", "none");
+        $("#uygulamalarIcon").css("display", "none");
+      });
+    </script>
+    <!-- ! ---------------- -->
+    <!-- ! BKE SCRIPT  -->
+    <script>
+      function bke() {
+        var boy = document.getElementById("boy").value;
+        var kilo = document.getElementById("kilo").value;
+        var yas = document.getElementById("yas").value;
+        var cinsiyet = document.getElementById("cinsiyet").value;
+
+        var bkeSonuc = document.getElementById("bkeSonuc");
+        var carpanCinsiyet = 1.1;
+        var carpanYas = 1.0;
+        var bke;
+        if (cinsiyet == "kadin") {
+          carpanCinsiyet = 0.9;
+        }
+        carpanYas += ((yas - (yas % 10)) / 10) * 0.01;
+        console.log(carpanYas);
+        console.log(carpanCinsiyet);
+        bke = (kilo / (boy * 0.01 * boy * 0.01)) * carpanCinsiyet * carpanYas;
+        if (bke < 18.5) {
+          bkeSonuc.innerText = bke + "- ZAYIF ";
+        } else if (18.5 < bke < 24.9) {
+          bkeSonuc.innerText = bke + "- NORMAL ";
+        } else if (24.9 < bke < 29.9) {
+          bkeSonuc.innerText = bke + "- KILOLU ";
+        } else if (29.9 < bke) {
+          bkeSonuc.innerText = bke + "- OBEZ ";
+        }
+      }
+    </script>
+    <!-- ! ------------------------------------------ -->
+    <script
+      src="https://kit.fontawesome.com/6ab4b1a255.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

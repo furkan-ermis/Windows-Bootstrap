@@ -1,0 +1,193 @@
+:root {
+  --world-reg0: 1em;
+  --world-reg: 2em;
+  --world-reg2: 4em;
+  --world-reg3: 4.5em;
+  --world-reg5: 8em;
+}
+body {
+  width: 100vh;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-image: url("../images/galaxy.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+.sol-system {
+  position: relative;
+  top: 50px;
+  left: 200px;
+}
+.orbit {
+  position: relative;
+  border: 1px dashed rgba(173, 163, 163, 0.863);
+  border-radius: 50%;
+  text-align: center;
+  animation: don 40s linear infinite;
+}
+
+.absolute {
+  position: absolute;
+}
+.world {
+  width: var(--world-reg);
+  animation: don 10s linear infinite;
+  height: var(--world-reg);
+}
+/* ------------------ */
+.sol-system .neptune {
+  inset: 100px 300px;
+  animation-duration: 20s;
+  height: 750px;
+  width: 750px;
+}
+.sol-system .neptune .name,
+.sol-system .neptune img {
+  position: relative;
+  top: calc(var(--world-reg) / 2 * (-1));
+}
+/* ------------------ */
+.sol-system .uranus {
+  animation-duration: 17s;
+  inset: 150px 350px;
+  height: 650px;
+  width: 650px;
+}
+.sol-system .uranus .name,
+.sol-system .uranus img {
+  position: relative;
+  top: calc(var(--world-reg) / 2 * (-1));
+}
+/* ------------------ */
+.sol-system .saturn {
+  animation-duration: 14s;
+  animation-name: tersdon;
+  inset: 200px 400px;
+  height: 550px;
+  width: 550px;
+}
+
+.sol-system .saturn .name,
+.sol-system .saturn img {
+  position: relative;
+  top: calc(var(--world-reg2) / 2 * (-1));
+}
+.sol-system .saturn .world {
+  width: var(--world-reg2);
+  height: var(--world-reg2);
+}
+/* ------------------ */
+.sol-system .jupiter {
+  animation-duration: 10s;
+  animation-name: tersdon 20s linear infinite;
+  inset: 250px 450px;
+  height: 450px;
+  width: 450px;
+}
+.sol-system .jupiter .name,
+.sol-system .jupiter img {
+  position: relative;
+  top: calc(var(--world-reg3) / 2 * (-1));
+}
+.sol-system .jupiter .world {
+  width: var(--world-reg3);
+  height: var(--world-reg3);
+}
+/* ------------------ */
+.sol-system .mars {
+  animation-duration: 12s;
+  animation-name: tersdon;
+  inset: 300px 500px;
+  height: 350px;
+  width: 350px;
+}
+.sol-system .mars .name,
+.sol-system .mars img {
+  position: relative;
+  top: calc(var(--world-reg) / 2 * (-1));
+}
+.sol-system .mars .world {
+  width: var(--world-reg);
+  height: var(--world-reg);
+}
+/* ------------------ */
+.sol-system .earth {
+  animation-duration: 8s;
+  animation: tersdon 20s linear infinite;
+  inset: 350px 550px;
+  height: 250px;
+  width: 250px;
+}
+.earth .orbit {
+  inset: 50px 50px;
+  animation: tersdon 20s linear infinite;
+  height: 450px;
+  width: 450px;
+}
+.sol-system .earth .name,
+.sol-system .earth img {
+  position: relative;
+  top: calc(var(--world-reg) / 2 * (-1));
+}
+.sol-system .earth .world {
+  width: var(--world-reg);
+  height: var(--world-reg);
+}
+.orbitMoon {
+  position: absolute;
+  top: -20px !important;
+  left: 100px !important;
+  width: 40px !important;
+  height: 40px !important;
+  border: none;
+}
+.moon {
+  width: var(--world-reg0);
+  animation: tersdon 20s linear infinite;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  height: var(--world-reg0);
+}
+/* ------------------ */
+.sol-system .venus {
+  animation-duration: 12s;
+  animation-name: tersdon;
+  inset: 375px 575px;
+  height: 200px;
+  width: 200px;
+}
+.sol-system .venus .name,
+.sol-system .venus img {
+  position: relative;
+  animation-name: tersdon;
+
+  top: calc(var(--world-reg) / 2 * (-1));
+}
+.sol-system .venus .world {
+  width: var(--world-reg);
+  height: var(--world-reg);
+}
+/* ------------------ */
+.sol-system .sun {
+  animation-duration: 12s;
+  animation-name: none;
+  inset: 425px 625px;
+}
+.sol-system .sun .world {
+  width: var(--world-reg5);
+  height: var(--world-reg5);
+}
+@keyframes don {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes tersdon {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
